@@ -3,11 +3,18 @@
 # The MIT License
 
 class CountDownObj
+  attr_reader :second, :minute, :hour, :day, :week
   @@second = 1
   @@minute = @@second * 60
   @@hour   = @@minute * 60
   @@day    = @@hour   * 24
   @@week   = @@day    * 7
+  
+  def second()  @@second;  end
+  def minute()  @@minute;  end
+  def hour()    @@hour;    end
+  def day()     @@day;     end
+  def week()    @@week;    end
   
   attr_accessor :countdownto
   
@@ -40,7 +47,11 @@ class CountDownObj
         end
       end
     end
-    out.chomp(", ")
+    if deadline.to_i <= 0
+      out = 'deadline'
+    else
+      out.chomp(", ")
+    end
   end
   
   def deadline=(timeObject)
