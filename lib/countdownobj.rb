@@ -16,7 +16,7 @@ class CountDownObj
   end
   
   def deadline
-    countdownto - Time.at(Time.now.to_f)
+    self.countdownto - Time.at(Time.now.to_f)
   end
   
   def to_s
@@ -44,6 +44,6 @@ class CountDownObj
   end
   
   def deadline=(timeObject)
-    countdownto = Time.at(timeObject)
+    self.countdownto = Time.at(timeObject)
   end
 end
